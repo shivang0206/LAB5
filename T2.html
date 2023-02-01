@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #count {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="increment-button">Increase</button>
+    <p id="count">0</p>
+
+    <script>
+      const button = document.querySelector('#increment-button');
+      const count = document.querySelector('#count');
+
+      button.addEventListener('click', () => {
+        let countValue = parseInt(count.textContent);
+        countValue++;
+        count.textContent = countValue;
+        count.style.fontSize = countValue + 'px';
+      });
+    </script>
+  </body>
+</html>

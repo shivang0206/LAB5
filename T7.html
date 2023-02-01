@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <style>
+      #app {
+        padding: 20px;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      input[type="number"] {
+        width: 50px;
+        height: 20px;
+        text-align: center;
+      }
+
+      select {
+        width: 80px;
+        height: 30px;
+      }
+
+      p {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" v-model="amount">
+      </div>
+      <div>
+        <label for="tipPercentage">Tip Percentage:</label>
+        <select id="tipPercentage" v-model="tipPercentage">
+          <option value="0.1">10%</option>
+          <option value="0.15">15%</option>
+          <option value="0.2">20%</option>
+        </select>
+      </div>
+      <div>
+        <label for="numOfPeople">Split between:</label>
+        <input type="number" id="numOfPeople" v-model="numOfPeople">
+      </div>
+      <div>
+        <p>Tip per person: {{tipPerPerson}}</p>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          amount: 0,
+          tipPercentage: 0.1,
+          numOfPeople: 1
+        },
+        computed: {
+          tipPerPerson() {
+            return (this.amount * this.tipPercentage / this.numOfPeople).toFixed(2);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

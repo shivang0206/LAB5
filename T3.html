@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      li {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="increment-button">Increment</button>
+    <ul id="list"></ul>
+
+    <script>
+      let count = 0;
+      const button = document.querySelector('#increment-button');
+      const list = document.querySelector('#list');
+
+      button.addEventListener('click', () => {
+        count++;
+        const listItem = document.createElement('li');
+        listItem.textContent = count;
+        listItem.style.fontSize = count + 'px';
+        list.appendChild(listItem);
+      });
+    </script>
+  </body>
+</html>

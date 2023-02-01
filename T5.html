@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      input[type="text"] {
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+
+      input[type="button"] {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 10px;
+        background-color: lightgray;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="button"]:hover {
+        background-color: gray;
+        color: white;
+      }
+
+      #result {
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+    </style>
+    <script>
+      function calculate() {
+        var num1 = Number.parseInt(document.querySelector("#in1").value);
+        var num2 = Number.parseInt(document.querySelector("#in2").value);
+        var operator = document.querySelector("#operator").value;
+        var result;
+
+        switch (operator) {
+          case "+":
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            result = num1 / num2;
+            break;
+        }
+
+        document.querySelector("#result").innerHTML = result;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="in1">
+    <input type="text" id="in2">
+    <br><br>
+    <input type="button" value="+" onclick="document.querySelector('#operator').value='+'; calculate();">
+    <input type="button" value="-" onclick="document.querySelector('#operator').value='-'; calculate();">
+    <input type="button" value="*" onclick="document.querySelector('#operator').value='*'; calculate();">
+    <input type="button" value="/" onclick="document.querySelector('#operator').value='/'; calculate();">
+    <input type="hidden" id="operator">
+    <br><br>
+    Result: <span id="result"></span>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <style>
+      table, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+      </tr>
+    </table>
+    <br>
+    <button>Add Row</button>
+    <script>
+      const button = document.querySelector('button');
+      button.addEventListener('click', addRow);
+
+      function addRow() {
+        const table = document.querySelector('table');
+        const rows = table.querySelectorAll('tr');
+        const lastRow = rows[rows.length - 1];
+        const prevRow = rows[rows.length - 2];
+        const sum = parseInt(lastRow.children[0].innerText, 10) + parseInt(prevRow.children[0].innerText, 10);
+
+        const newRow = document.createElement('tr');
+        const newCell = document.createElement('td');
+        newCell.innerText = sum;
+        newRow.appendChild(newCell);
+        table.appendChild(newRow);
+      }
+    </script>
+  </body>
+</html>

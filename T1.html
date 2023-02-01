@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <style>
+      h2 {
+        animation: spin 5s linear infinite;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="hello">Hello</h2>
+    <input type="text" id="input-box">
+    <button id="submit-button">Submit</button>
+    <script>
+      const inputBox = document.querySelector('#input-box');
+      const hello = document.querySelector('#hello');
+      const submitButton = document.querySelector('#submit-button');
+      submitButton.addEventListener('click', function() {
+        hello.innerHTML = inputBox.value;
+      });
+    </script>
+  </body>
+</html>
